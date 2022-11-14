@@ -1,15 +1,26 @@
-import { BrowserRouter } from 'react-router-dom';
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
-import Search from './components/Search';
+import Game from './pages/Game';
+import Genre from './components/Genre';
+import Home from './pages/Home';
+import EachGenre from './pages/EachGenre';
+
 
 
 function App() {
   return (
     <div>
-      <BrowserRouter>
-        <NavBar/>
-        <Search/>    
-      </BrowserRouter>  
+      <NavBar/>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/genre/:type" element={<EachGenre/>}/>
+        <Route path="/game/:name" element={<Game/>}/>
+
+      </Routes>
+     
+
+    
     </div>
   );
 }
