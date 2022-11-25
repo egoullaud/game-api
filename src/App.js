@@ -1,24 +1,16 @@
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter} from 'react-router-dom';
 import NavBar from './components/NavBar';
-import Game from './pages/Game';
-import Genre from './components/Genre';
-import Home from './pages/Home';
-import EachGenre from './pages/EachGenre';
-
+import Paths from './pages/Paths';
 
 
 function App() {
   return (
     <div>
+      <BrowserRouter>
       <NavBar/>
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/genre/:type" element={<EachGenre/>}/>
-        <Route path="/game/:name" element={<Game/>}/>
-
-      </Routes>
-     
+      <Paths/>
+      </BrowserRouter>
 
     
     </div>

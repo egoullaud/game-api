@@ -5,13 +5,11 @@ import {Splide, SplideSlide} from '@splidejs/react-splide'
 import '@splidejs/react-splide/css'
 import Action from '../components/Genres/Action';
 
-function EachGenre() {
+function AllGenres() {
     return (
-        <Action/>
+       <Action/>
 
     )
      
   }
-
-
-export default EachGenre
+export default AllGenres

@@ -1,44 +1,28 @@
-import {Link, useParams} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import React from 'react'
-import { useState } from 'react';
-import { useEffect } from 'react';
-
-function Searched() {
-  const [searchedGames, setSearchedGames] = useState({});
-  let params = useParams();
-
-  const getSearched = async (name) => {
-    const data = await fetch(`https://api.rawg.io/api/games?key=${process.env.REACT_APP_API_KEY}&search=${name}`)
-    const games = await data.json();
-    setSearchedGames(data.results);
-    console.log(games);
-  };
-
-  useEffect(() => {
-    getSearched(params.search);
-  }, [params.search]);
 
 
+function Searched(props) {
+ 
   return (
-    <div className='searched-grid grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 g-1 '>
-      {searchedGames.map((data) => {
-        return(
-          <div key={data.id}>
-            <Link to={'/searched/'+data.name}>
-              <img src={data.background_image} 
-              alt={data.name}
-              className='w-full object-cover'/>
-              <h4
-              className='hover:underline text-[#eeeeee] text-center p-[1rem] w-[90%]'> {data.name}</h4>  
-            </Link> 
-          </div>
-        )
-
-      })}
-
+    <div className="searched-grid">
       
+      <ul className='flex flex-wrap justify-center'>
+      
+        {
+          props.gameResults.map(game => (
+            <li key={game.id}
+            className='md:w-[30%] w-[100%] m-2'> 
+              <Link to={"/game/"+ game.id}>
+                    <img src={game.background_image} alt="game" className='w-full object-cover overflow-x-hidden h-[20vh] rounded-md' />
+                  <h4 className='hover:underline text-[#eeeeee] text-center p-[1rem] w-[90%]'> {game.name} </h4>
+              </Link>
+            </li>
+          ))
+        }
+      </ul>     
     </div>
-  )
+  );
 }
 
 export default Searched
