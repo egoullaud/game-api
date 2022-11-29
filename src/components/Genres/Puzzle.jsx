@@ -51,7 +51,7 @@ function Puzzle() {
           return(
               <SplideSlide key={data.id}>
                   <div  className='relative h-[20rem] overflow-hidden' >
-                      <Link to={"/game/"+data.name}>
+                      <Link to={"/game/"+data.id}>
                           <img src={data.background_image} 
                           alt={data.name}
                           className='w-full h-[70%] object-cover overflow-y-hidden rounded-md shadow-2xl'
