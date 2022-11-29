@@ -4,6 +4,7 @@ import {MdGames} from 'react-icons/md'
 import { Link } from 'react-router-dom';
 import Genre from './Genre';
 import Home from '../pages/Home';
+import AllGenres from '../pages/AllGenres';
 
 
 
@@ -20,7 +21,7 @@ function NavBar() {
         Gamerverse</h1></Link> 
         <ul className='hidden md:flex'>
             <Link to='/' element={<Home/>}><li className='p-4 hover:underline'>Home</li></Link>
-          
+            <Link to='/genres/all' element={<AllGenres/>}><li className='p-4 hover:underline'>Genres</li></Link>
         </ul>
         <div onClick={handleNav} className="block md:hidden">
             { !nav ? <AiOutlineMenu size={20}/> : <AiOutlineClose size={20}/> }
@@ -29,6 +30,7 @@ function NavBar() {
         <Link to='/' element={<Home/>}><h1 className=' p-4  flex w-full text-3xl font-bold text-[#DA0037]'><MdGames className='mr-1' size={40}/>Gamerverse</h1></Link>
         <ul className='p-4 uppercase'>
             <Link to='/' element={<Home/>}><li className='p-4 border-b border-gray-500'>Home</li></Link>
+            <Link to='/genres/all' element={<AllGenres/>}><li className='p-4 hover:underline'>Genres</li></Link>
         </ul>
         </div>
 

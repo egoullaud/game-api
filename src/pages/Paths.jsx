@@ -12,7 +12,7 @@ function Paths() {
 
         <Route path="/" element={<Home/>}/>
         <Route path="/game/:name" element={<Game/>}/>
-        <Route path="genre/genres" element={<AllGenres/>}/>
+        <Route path="genres/all" element={<AllGenres/>}/>
         <Route path="/searched/:search" element={<Searched/>}/>
 
     </Routes>

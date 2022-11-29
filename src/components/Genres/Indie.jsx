@@ -12,7 +12,7 @@ function Indie() {
       getIndie();
     }, []);
   
-  const getAction = async () => {
+  const getIndie = async () => {
     const indieApi = await fetch(`https://api.rawg.io/api/games?key=${process.env.REACT_APP_API_KEY}&genres=indie`);
     const data = await indieApi.json();
     console.log(data);
@@ -21,7 +21,7 @@ function Indie() {
   }
   
     return (
-      <div className='mb-10 md:mb-24'>
+      <div className='mb-10'>
       <div className='md:px-24 px-8  text-[#eeeeee] border-b-2 border-b-[#a9081c] '>
         <h3 className='text-start text-3xl bold py-4'>Indie Games</h3>
         <Splide

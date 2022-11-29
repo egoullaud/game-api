@@ -4,26 +4,25 @@ import { Link } from 'react-router-dom';
 import {Splide, SplideSlide} from '@splidejs/react-splide'
 import '@splidejs/react-splide/css'
 
-
-function Action() {
-    const [action, setAction] = useState([]);
+function Card() {
+    const [card, setCard] = useState([]);
 
     useEffect(() => {
-      getAction();
+      getCard();
     }, []);
   
-  const getAction = async () => {
-    const actionApi = await fetch(`https://api.rawg.io/api/games?key=${process.env.REACT_APP_API_KEY}&genres=action`);
-    const data = await actionApi.json();
+  const getCard= async () => {
+    const cardApi = await fetch(`https://api.rawg.io/api/games?key=${process.env.REACT_APP_API_KEY}&genres=card`);
+    const data = await cardApi.json();
     console.log(data);
-    localStorage.setItem("action", JSON.stringify(data.results));
-    setAction(data.results);
+    localStorage.setItem("card", JSON.stringify(data.results));
+    setCard(data.results);
   }
   
     return (
       <div className='mb-10'>
-      <div className='md:px-24 px-8  text-[#eeeeee] border-y-2 border-y-[#a9081c] '>
-        <h3 className='text-start text-3xl bold py-4'>Action Games</h3>
+      <div className='md:px-24 px-8  text-[#eeeeee] border-b-2 border-b-[#a9081c] '>
+        <h3 className='text-start text-3xl bold py-4'>Card Games</h3>
         <Splide
             options={{
                 arrows:false,
@@ -47,7 +46,7 @@ function Action() {
                 },
             }}
         >
-      {action.map((data) => {
+      {card.map((data) => {
           return(
               <SplideSlide key={data.id}>
                   <div  className='relative h-[20rem] overflow-hidden' >
@@ -72,4 +71,4 @@ function Action() {
     )
 }
 
-export default Action
+export default Card

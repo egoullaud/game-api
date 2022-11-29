@@ -22,15 +22,17 @@ function Game() {
   return (
 
 
-    <div>
-        <div className='lg:mx-24 lg:mb-24 mb-10'>
+    <div className='h-[100vh] w-[100%]'>
+        <div className='lg:mx-24 lg:mb-24 mb-10 h-full'>
             <div>
                 <img src={details.background_image} alt={details.name}/>
             </div>
-            <div>
+            <div className='bg-[#2e2c2d] m-4 pb-10 rounded-md'>
                 <h2 className='text-[#eeeeee] text-lg font-bold py-4 mx-4 md:pl-5'> {details.name}  </h2>
-                <div className='flex justify-between mb-4 mx-4 text-sm md:mx-10 md:text-md'>
-                    <h2 className='text-[#eeeeee]'><a className='flex' href=
+                <div className='flex flex-col justify-between mb-4 mx-4 text-sm md:mx-10 md:text-md'>
+                    
+                    <div className='flex w-full justify-between'>
+                    <h2 className='text-[#eeeeee] flex items-center'><a className='flex' href=
                     {details.website}>
                         Visit Website <BiLinkExternal/></a></h2>
                         {details.released !== null && 
@@ -38,6 +40,22 @@ function Game() {
                     Release Date: {details.released}</h2>}
                    
                  
+                    
+                
+                    <h2 className='text-[#eeeeee] mr-4'>Rating: {details.rating}/{details.rating_top}</h2>
+                    </div>
+                  
+
+           
+                </div>
+                
+                    <div className='md:mx-10 mx-8'>
+                        <p 
+                            className='text-[#eeeeee] text-sm md:text-md md:leading-6'
+                            dangerouslySetInnerHTML={{__html: details.description}}>
+                        </p>
+                    </div>
+                    <div className='flex justify-between w-full mt-5 p-4 pb-0'>
                     <h2 className='text-[#eeeeee]'> | {details.genres?.map((genre) =>
                          {return( ` ${genre.name} |` )
                            
@@ -50,17 +68,6 @@ function Game() {
                             } 
                             )} 
                     </h2>
-                
-                    <h2 className='text-[#eeeeee] mr-4'>Rating: {details.rating}/{details.rating_top}</h2>
-
-           
-                </div>
-                
-                    <div className='md:mx-10 mx-8'>
-                        <p 
-                            className='text-[#eeeeee] text-sm md:text-md md:leading-6'
-                            dangerouslySetInnerHTML={{__html: details.description}}>
-                        </p>
                     </div>
             </div>
         </div>
