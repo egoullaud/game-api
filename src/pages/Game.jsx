@@ -55,7 +55,7 @@ function Game() {
                             dangerouslySetInnerHTML={{__html: details.description}}>
                         </p>
                     </div>
-                    <div className='flex justify-between w-full mt-5 p-4 pb-0'>
+                    <div className='flex flex-wrap justify-around w-full mt-5 p-4 pb-0'>
                     <h2 className='text-[#eeeeee]'> | {details.genres?.map((genre) =>
                          {return( ` ${genre.name} |` )
                            
