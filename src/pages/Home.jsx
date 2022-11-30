@@ -12,7 +12,7 @@ function Home() {
         <Search/>   
         <Upcoming/> 
         <TopRated/>
-        <Genre/>
+        {/* <Genre/> */}
     </div>
   )
 }
